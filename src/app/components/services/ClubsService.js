@@ -9,7 +9,7 @@
 
   function clubsService($q){
     var allClubs = [
-      {name: 'Stade Rennais', city: 'Rennes', country:'France', officialName: 'Stade Rennais football Club', color1: 'red', color2: 'black', logo: 'http://', shirt: 'http://' }
+      {name: 'Stade Rennais', city: 'Rennes', country:'France', officialName: 'Stade Rennais football Club', color1: 'red', color2: 'black', logo: 'http://', shirt: 'http://', sport: 'football' }
     ];
 
     return {

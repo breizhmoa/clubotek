@@ -1,14 +1,15 @@
 <!-- TODO: Add validations -->
-<md-content md-theme="dark" class="md-padding" layout="row" layout-sm="column">
+<md-content md-theme="light" class="md-padding" layout="column">
     <md-input-container>
         <label>Search</label>
         <input ng-model="vm.searchClub">
         <!--i class="material-icons md-16">search</i-->
     </md-input-container>
     <div class="table-responsive-vertical md-whiteframe-z1">
-      <table id="table" class="table table-hover table-bordered">
+      <table id="clubs" class="table table-hover table-bordered">
         <thead>
         <tr>
+            <th>$</th>
             <th>Name</th>
             <th>Country</th>
             <th>City</th>
