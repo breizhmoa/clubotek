@@ -37,6 +37,15 @@ angular.module('clubotekApp', ['ngAnimate', 'ngCookies', 'ngTouch',
         data: {
           title: 'Table'
         }
+      })
+      .state('home.clubs', {
+        url: '/clubs',
+        controller: 'ClubsController',
+        controllerAs: 'vm',
+        templateUrl: 'app/views/clubs.html',
+        data: {
+          title: 'Clubs'
+        }
       });
 
     $urlRouterProvider.otherwise('/dashboard');

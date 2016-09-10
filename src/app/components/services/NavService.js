@@ -7,6 +7,7 @@
           navService
   ]);
 
+  /* icon references come from https://design.google.com/icons */
   function navService($q){
     var menuItems = [
       {
@@ -23,6 +24,11 @@
         name: 'Table',
         icon: 'view_module',
         sref: '.table'
+      },
+      {
+        name: 'Clubs',
+        icon: 'copyright',
+        sref: '.clubs'
       }
     ];
 
