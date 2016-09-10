@@ -2,6 +2,29 @@
 <md-content md-theme="dark" class="md-padding" layout="row" layout-sm="column">
     <md-input-container>
         <label>Search</label>
-        <input ng-model="vm.clubs">
+        <input ng-model="vm.searchClub">
+        <!--i class="material-icons md-16">search</i-->
     </md-input-container>
+    <div class="table-responsive-vertical md-whiteframe-z1">
+      <table id="table" class="table table-hover table-bordered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Sport</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="data in vm.clubsData track by $index">
+            <td data-title="ID">{{$index + 1}}</td>
+            <td data-title="Name">{{data.name}}</td>
+            <td data-title="Country">{{data.country}}</td>
+            <td data-title="City">{{data.city}}</td>
+            <td data-title="Sport">{{data.sport}}</td>
+            </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
 </md-content>
