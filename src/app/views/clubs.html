@@ -9,7 +9,6 @@
       <table id="clubs" class="table table-hover table-bordered">
         <thead>
         <tr>
-            <th>$</th>
             <th>Name</th>
             <th>Country</th>
             <th>City</th>
@@ -17,8 +16,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="data in vm.clubsData track by $index">
-            <td data-title="ID">{{$index + 1}}</td>
+        <tr ng-repeat="data in vm.clubsData | filter: vm.searchClub">
             <td data-title="Name">{{data.name}}</td>
             <td data-title="Country">{{data.country}}</td>
             <td data-title="City">{{data.city}}</td>

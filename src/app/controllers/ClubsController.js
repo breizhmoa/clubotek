@@ -10,8 +10,8 @@
   function ClubsController(clubsService) {
     var vm = this;
 
+    vm.searchClub = 'rennes';
     vm.clubsData = [];
-    vm.searchClub = '';
 
     clubsService
       .loadAll()
