@@ -8,7 +8,7 @@
         <md-icon class="material-icons">flag</md-icon>
         <md-select ng-model="vm.searchCountry">
             <md-option ng-value=''><em>None</em></md-option>
-            <md-option ng-repeat="cn in vm.countries" ng-value="cn.code" ng-disabled="$index === 1">
+            <md-option ng-repeat="cn in vm.countries" ng-value="cn.code">
               {{cn.display}}
             </md-option>
         </md-select>
@@ -16,15 +16,15 @@
     <md-input-container class="md-icon-float md-block">
         <md-icon class="material-icons">rowing</md-icon>
         <md-select ng-model="vm.searchSport">
-            <md-option><em>None</em></md-option>
-            <md-option ng-repeat="sport in vm.sports" ng-value="sport.name" ng-disabled="$index === 1">
-              {{sport.name}}
+            <md-option ng-value=''><em>None</em></md-option>
+            <md-option ng-repeat="sport in vm.sports" ng-value="sport.value">
+              {{sport.display}}
             </md-option>
         </md-select>
     </md-input-container>
     <span flex></span>
     <md-button class="md-icon-button md-warn">
-        <md-icon class="material-icons" ng-click="vm.searchClub = ''; vm.searchCountry = ''">clear</md-icon>
+        <md-icon class="material-icons" ng-click="vm.searchClub = ''; vm.searchCountry = ''; vm.searchSport = ''">clear</md-icon>
     </md-button>
 </md-content>
 <md-content md-theme="light" class="md-padding" layout="column">
@@ -41,7 +41,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="data in vm.clubsData | filter: vm.searchClub | filter:{country:vm.searchCountry}">
+        <tr ng-repeat="data in vm.clubsData | filter: vm.searchClub | filter:{country:vm.searchCountry} | filter:{sport:vm.searchSport}">
             <td data-title="Name">{{data.name}}</td>
             <td data-title="Country">{{data.country}}</td>
             <td data-title="City">{{data.city}}</td>
