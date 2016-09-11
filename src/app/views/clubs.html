@@ -1,10 +1,15 @@
 <!-- TODO: Add validations -->
-<md-content md-theme="light" class="md-padding" layout="column">
-    <md-input-container>
-        <label>Search</label>
-        <input ng-model="vm.searchClub">
-        <!--i class="material-icons md-16">search</i-->
+<md-content md-theme="dark" flex layout="row" align-items="center">
+    <md-input-container class="md-icon-float md-block">
+        <md-icon class="material-icons">search</md-icon>
+        <input ng-model="vm.searchClub" type="text" placeholder="Search">
     </md-input-container>
+    <span flex></span>
+    <md-button class="md-icon-button md-warn">
+        <md-icon class="material-icons" ng-click="vm.searchClub = '';">clear</md-icon>
+    </md-button>
+</md-content>
+<md-content md-theme="light" class="md-padding" layout="column">
     <div class="table-responsive-vertical md-whiteframe-z1">
       <table id="clubs" class="table table-hover table-bordered">
         <thead>
@@ -13,6 +18,8 @@
             <th>Country</th>
             <th>City</th>
             <th>Sport</th>
+            <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -21,7 +28,8 @@
             <td data-title="Country">{{data.country}}</td>
             <td data-title="City">{{data.city}}</td>
             <td data-title="Sport">{{data.sport}}</td>
-            </td>
+            <td><i class="material-icons" style="color: {{data.color1}}">opacity</i><i class="material-icons" style="font-size: 16px; color: {{data.color2}}">opacity</i></td>
+            <td><md-button class="md-raised md-primary" ng-click="">view</md-button></td>
         </tr>
         </tbody>
       </table>

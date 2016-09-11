@@ -9,7 +9,7 @@
 
   function clubsService($q){
     var allClubs = [
-      {name: 'Stade Rennais', city: 'Rennes', country:'France', officialName: 'Stade Rennais football Club', color1: 'red', color2: 'black', logo: 'http://', shirt: 'http://', sport: 'football' }
+      { sport: 'football', name: 'Stade Rennais', city: 'Rennes', country:'France', officialName: 'Stade Rennais football Club', color1: 'red', color2: 'black', logo: 'http://', shirt: 'http://', shirtType: 'mono', addressOffice: '', foundationYear: '1901', stadium: {name: 'Roazhon Park', capacity: 29000, address: '111 route de Lorient 35200 Rennes'}, palmares: {} }
     ];
 
     return {
