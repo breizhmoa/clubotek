@@ -43,9 +43,9 @@
         <tbody>
         <tr ng-repeat="data in vm.clubsData | filter: vm.searchClub | filter:{country:vm.searchCountry} | filter:{sport:vm.searchSport}">
             <td data-title="Name">{{data.name}}</td>
-            <td data-title="Country">{{data.country}}</td>
+            <td data-title="Country">{{(vm.countries | filter: {code: data.country})[0].display}}</td>
             <td data-title="City">{{data.city}}</td>
-            <td data-title="Sport">{{data.sport}}</td>
+            <td data-title="Sport"><span class="md-caption">{{(vm.sports | filter: {id: data.sport})[0].display}}</span> <md-icon md-svg-src="{{(vm.sports | filter: {id: data.sport})[0].icon}}" style="font-size: 16px;"></md-icon></td>
             <td><i class="material-icons" style="color: {{data.color1}}">opacity</i><i class="material-icons" style="font-size: 16px; color: {{data.color2}}">opacity</i></td>
             <td><md-button class="md-raised md-primary" ng-click="">view</md-button></td>
         </tr>
