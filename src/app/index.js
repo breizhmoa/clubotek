@@ -48,7 +48,7 @@ angular.module('clubotekApp', ['ngAnimate', 'ngCookies', 'ngTouch',
         }
       });
 
-    $urlRouterProvider.otherwise('/dashboard');
+    $urlRouterProvider.otherwise('/clubs');
 
     $mdThemingProvider
       .theme('default')
