@@ -24,8 +24,13 @@
         name: 'Table',
         icon: 'view_module',
         sref: '.table'
+      },*/
+      {
+        name: 'Map',
+        icon: 'map',
+        sref: '.map'
       },
-*/      {
+      {
         name: 'Clubs',
         icon: 'copyright',
         sref: '.clubs'

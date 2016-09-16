@@ -1,9 +1,11 @@
 <!-- TODO: Add validations -->
 <md-content md-theme="dark" flex layout="row" align-items="center">
+    <span flex="5"></span>
     <md-input-container class="md-icon-float md-block">
         <md-icon class="material-icons">search</md-icon>
         <input ng-model="vm.searchClub" type="text" placeholder="Search">
     </md-input-container>
+    <span flex="5"></span>
     <md-input-container class="md-icon-float md-block" hide-xs>
         <md-icon class="material-icons">flag</md-icon>
         <md-select ng-model="vm.searchCountry">
@@ -13,11 +15,12 @@
             </md-option>
         </md-select>
     </md-input-container>
+    <span flex="5"></span>
     <md-input-container class="md-icon-float md-block" hide-xs>
         <md-icon class="material-icons">rowing</md-icon>
         <md-select ng-model="vm.searchSport">
             <md-option ng-value=''><em>None</em></md-option>
-            <md-option ng-repeat="sport in vm.sports" ng-value="sport.value">
+            <md-option ng-repeat="sport in vm.sports" ng-value="sport.id">
               {{sport.display}}
             </md-option>
         </md-select>

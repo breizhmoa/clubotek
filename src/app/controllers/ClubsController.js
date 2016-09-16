@@ -13,6 +13,7 @@
     var vm = this;
 
     vm.searchClub = '';
+    vm.searchSport = '';
     vm.sports = sportsService.loadAll();
     vm.countries = countriesService.loadAll();
     
