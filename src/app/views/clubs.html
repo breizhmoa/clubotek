@@ -31,7 +31,7 @@
         <md-icon class="material-icons">clear</md-icon>
     </md-button>
 </md-content>
-<md-content md-theme="light" class="md-padding" layout="column">
+<md-content md-theme="default" class="md-padding" layout="column">
     <div class="table-responsive-vertical md-whiteframe-z1">
       <table id="clubs" class="table table-hover table-bordered">
         <thead>
@@ -51,7 +51,7 @@
             <td data-title="City">{{data.city}}</td>
             <td data-title="Sport"><span class="md-caption">{{(vm.sports | filter: {id: data.sport})[0].display}}</span> <md-icon md-svg-src="{{(vm.sports | filter: {id: data.sport})[0].icon}}" style="font-size: 16px;"></md-icon></td>
             <td><i class="material-icons" style="color: {{data.color1}}">opacity</i><i class="material-icons" style="font-size: 16px; color: {{data.color2}}">opacity</i></td>
-            <td><md-button class="md-raised md-primary" ng-click="">view</md-button></td>
+            <td><md-button class="md-raised md-primary" ui-sref="home.club({id: data.id})">view</md-button></td>
         </tr>
         </tbody>
       </table>

@@ -1,0 +1,27 @@
+<!-- TODO: Add validations -->
+<md-content md-theme="light" class="md-padding" layout="column">
+    <div class="table-responsive-vertical md-whiteframe-z1">
+      <table id="club" class="table table-hover table-bordered">
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td data-title="Name">{{vm.club.name}}</td>
+            <td data-title="Official Name">{{vm.club.officialName}}</td>
+            <td data-title="City">{{vm.club.city}}</td>
+            <td data-title="Country">{{(vm.countries | filter: {code: vm.club.country})[0].display}}</td>
+            <td data-title="Sport"><span class="md-caption">{{(vm.sports | filter: {id: vm.club.sport})[0].display}}</span> <md-icon md-svg-src="{{(vm.sports | filter: {id: vm.club.sport})[0].icon}}" style="font-size: 16px;"></md-icon></td>
+            <td><i class="material-icons" style="color: {{vm.club.color1}}">opacity</i><i class="material-icons" style="font-size: 16px; color: {{vm.club.color2}}">opacity</i></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+</md-content>

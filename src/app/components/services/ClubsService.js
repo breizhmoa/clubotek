@@ -4,10 +4,11 @@
   angular.module('app')
     .service('clubsService', [
         '$q',
+        '$filter',
       clubsService
     ]);
 
-  function clubsService($q){
+  function clubsService($q, $filter){
     var allClubs = [
       { id: 1, sport: 1, name: 'Stade Rennais', city: 'Rennes', country:'FR', officialName: 'Stade Rennais Football Club', color1: 'red', color2: 'black', logo: 'http://', shirt: 'http://', shirtType: 'mono', addressOffice: '', foundationYear: '1901', stadium: {name: 'Roazhon Park', capacity: 29000, address: '111 route de Lorient 35200 Rennes'}, curLeague: 'ligue 1', palmares: {} },
       { id: 2, sport: 1, name: 'FC Nantes', city: 'Nantes', country:'FR', officialName: 'Football Club Nantes', color1: 'gold', color2: 'green', logo: 'http://', shirt: 'http://', shirtType: 'mono', addressOffice: '', foundationYear: '1943', stadium: {name: 'La Beaujoire'}, curLeague: 'ligue 1', palmares: {} },
@@ -17,13 +18,10 @@
     return {
       loadAll : function() {
         return $q.when(allClubs);
-        /*return allClubs.map(function(club) {
-          return {
-            value: club.name.toLowerCase(),
-            display: club.name,
-            code: club.code
-          };
-        });*/
+      },
+
+      get : function(id) {
+        return $filter("filter")(allClubs, {id: id})[0];
       }
     };
   }
