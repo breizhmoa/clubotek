@@ -1,0 +1,62 @@
+<!-- TODO: Add validations -->
+<md-content md-theme="dark" class="md-padding" layout="column">
+    <div flex-xs flex-gt-xs="50" layout="column">
+      <md-card>
+        <md-card-header>
+          <md-icon md-svg-src="{{vm.club.logo | trusted}}" class="s32"></md-icon>
+          <md-card-header-text layout="row">
+            <div layout="column" layout-align="center start">
+              <span class="md-headline">{{vm.club.name}}</span>
+              <div layout="row" layout-align="center center"><span class="md-title">{{vm.club.city}} - {{(vm.countries | filter: {code: vm.club.country})[0].display}} </span><md-button class="md-icon-button" ng-click="#"><i class="material-icons">place</i></md-button></div>
+            </div>
+            <div flex></div>
+          </md-card-header-text>
+          <md-card-actions layout="row" layout-align="center end">
+            <md-button class="md-raised">Edit</md-button>
+            <md-button class="md-warn md-raised">Delete</md-button>
+          </md-card-actions>
+        </md-card-header>
+      </md-card>
+    </div>
+</md-content>
+<md-content md-theme="default" class="md-padding" layout="column">
+    <div flex-xs flex-gt-xs="50" layout="column">
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-title"><i class="material-icons">info_outline</i> Informations</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <span>todo: foundation year, shirt, surname, address, ...</span>
+        </md-card-content>
+        <md-divider></md-divider>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-title"><i class="material-icons">location_city</i> Stadium</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <span>todo: stadium info + localisation (maps)</span>
+        </md-card-content>
+        <md-divider></md-divider>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-title"><i class="material-icons">book</i> Records</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <span>todo: one line per competition with logo</span>
+        </md-card-content>
+        <md-divider></md-divider>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-title"><i class="material-icons">history</i> History</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <span>todo: timeline with event, logos, shirts</span>
+        </md-card-content>
+      </md-card>
+    </div>
+</md-content>

@@ -51,7 +51,8 @@ angular.module('clubotekApp', ['ngAnimate', 'ngCookies', 'ngTouch',
         url: '/club/:id',
         controller: 'ClubReadController',
         controllerAs: 'vm',
-        templateUrl: 'app/views/club-details.html',
+        /*templateUrl: 'app/views/club-details.html',*/
+        templateUrl: 'app/views/club-detail.html',
         data: {
           title: 'Club'
         }
