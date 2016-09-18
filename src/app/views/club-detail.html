@@ -3,18 +3,22 @@
     <div flex-xs flex-gt-xs="50" layout="column">
       <md-card>
         <md-card-header>
-          <md-icon md-svg-src="{{vm.club.logo | trusted}}" class="s32"></md-icon>
+          <img flex="10" ng-src="{{vm.club.logo}}" class="md-card-image" style="height:128px; margin-right: 15px;">
           <md-card-header-text layout="row">
             <div layout="column" layout-align="center start">
               <span class="md-headline">{{vm.club.name}}</span>
-              <div layout="row" layout-align="center center"><span class="md-title">{{vm.club.city}} - {{(vm.countries | filter: {code: vm.club.country})[0].display}} </span><md-button class="md-icon-button" ng-click="#"><i class="material-icons">place</i></md-button></div>
+              <div layout="row" layout-align="center center"><span class="md-title">{{vm.club.city}} - {{(vm.countries | filter: {code: vm.club.country})[0].display}}</span></div>
             </div>
             <div flex></div>
           </md-card-header-text>
-          <md-card-actions layout="row" layout-align="center end">
-            <md-button class="md-raised">Edit</md-button>
-            <md-button class="md-warn md-raised">Delete</md-button>
-          </md-card-actions>
+          <div layout="column">
+            <div layout="row" layout-align="center end"><span flex></span><span style="margin-right:10px;">{{(vm.sports | filter: {id: data.sport})[0].display}}</span><md-icon md-svg-src="{{(vm.sports | filter: {id: data.sport})[0].icon}}" style="font-size: 16px;"></md-icon></div>
+            <span flex></span>
+            <md-card-actions layout="row" layout-align="center end">
+              <md-button class="md-raised">Edit</md-button>
+              <md-button class="md-warn md-raised">Delete</md-button>
+            </md-card-actions>
+          </div>
         </md-card-header>
       </md-card>
     </div>
@@ -27,8 +31,17 @@
             <span class="md-title"><i class="material-icons">info_outline</i> Informations</span>
           </md-card-title-text>
         </md-card-title>
-        <md-card-content>
-            <span>todo: foundation year, shirt, surname, address, ...</span>
+        <md-card-content layout="row" layout-align="start center">
+          <div layout="column" layout-align="center start">
+            <span>{{vm.club.officialName}} ({{vm.club.foundationYear}})</span>
+            <span>{{vm.club.curLeague}}</span>
+            <span style="margin-top: 20px;" class="md-caption">{{vm.club.surname}}</span>
+            <a class="md-caption" href="{{vm.club.website}}" target="blank">{{vm.club.website}}</a>
+          </div>
+          <span flex></span>
+          <div layout="column" layout-align="center end">
+            <div>todo: show shirts</div>
+          </div>
         </md-card-content>
         <md-divider></md-divider>
         <md-card-title>
@@ -36,8 +49,15 @@
             <span class="md-title"><i class="material-icons">location_city</i> Stadium</span>
           </md-card-title-text>
         </md-card-title>
-        <md-card-content>
-            <span>todo: stadium info + localisation (maps)</span>
+        <md-card-content layout="row" layout-align="start center">
+          <div layout="column" layout-align="center start">
+            <div layout="row" layout-align="start center"><span>{{vm.club.stadium.name}}</span><md-button class="md-icon-button" ng-click="#"><i class="material-icons">place</i></md-button></div>
+            <div>{{vm.club.stadium.capacity | number: 0}} pl.</div>
+          </div>
+          <span flex></span>
+          <div layout="column" layout-align="center end">
+            <div>todo: include gmaps</div>
+          </div>
         </md-card-content>
         <md-divider></md-divider>
         <md-card-title>

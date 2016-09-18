@@ -32,7 +32,7 @@
       },
       {
         name: 'Clubs',
-        icon: 'copyright',
+        icon: 'local_library',
         sref: '.clubs'
       }
     ];
