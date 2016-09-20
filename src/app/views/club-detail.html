@@ -2,8 +2,9 @@
 <md-content md-theme="dark" class="md-padding" layout="column">
     <div flex-xs flex-gt-xs="50" layout="column">
       <md-card>
-        <md-card-header>
-          <img flex="10" ng-src="{{vm.club.logo}}" class="md-card-image" style="height:128px; margin-right: 15px;">
+        <md-card-header layout="row" layout-xs="column">
+          <img hide show-gt-xs ng-src="{{vm.club.logo}}" class="md-card-image" style="height:96px; width: auto; margin-right: 15px;">
+          <img hide-gt-xs ng-src="{{vm.club.logo}}" class="md-card-image" style="height:auto; width: 100%;">
           <md-card-header-text layout="row">
             <div layout="column" layout-align="center start">
               <span class="md-headline">{{vm.club.name}}</span>
@@ -31,16 +32,17 @@
             <span class="md-title"><i class="material-icons">info_outline</i> Informations</span>
           </md-card-title-text>
         </md-card-title>
-        <md-card-content layout="row" layout-align="start center">
+        <md-card-content layout="row" layout-xs="column" layout-align="start center" layout-align-xs="center start">
           <div layout="column" layout-align="center start">
-            <span>{{vm.club.officialName}} ({{vm.club.foundationYear}})</span>
-            <span>{{vm.club.curLeague}}</span>
+            <span>{{vm.club.officialName}}</span><br/>
+            <span class="md-subheader">Fondé en <strong>{{vm.club.foundationYear}}</strong></span>
+            <span class="md-subheader">En <strong>{{vm.club.current.league}}</strong> ({{vm.club.current.year}})</span>
             <span style="margin-top: 20px;" class="md-caption">{{vm.club.surname}}</span>
             <a class="md-caption" href="{{vm.club.website}}" target="blank">{{vm.club.website}}</a>
           </div>
           <span flex></span>
           <div layout="column" layout-align="center end">
-            <div>todo: show shirts</div>
+            <div><img ng-src="{{vm.club.shirt}}" class="md-card-image" style="height:128px; margin-right: 15px;"></div>
           </div>
         </md-card-content>
         <md-divider></md-divider>
@@ -49,10 +51,10 @@
             <span class="md-title"><i class="material-icons">location_city</i> Stadium</span>
           </md-card-title-text>
         </md-card-title>
-        <md-card-content layout="row" layout-align="start center">
+        <md-card-content layout="row" layout-xs="column" layout-align="start center" layout-align-xs="center start">
           <div layout="column" layout-align="center start">
             <div layout="row" layout-align="start center"><span>{{vm.club.stadium.name}}</span><md-button class="md-icon-button" ng-click="#"><i class="material-icons">place</i></md-button></div>
-            <div>{{vm.club.stadium.capacity | number: 0}} pl.</div>
+            <div class="md-subheader">{{vm.club.stadium.capacity | number: 0}} pl.</div>
           </div>
           <span flex></span>
           <div layout="column" layout-align="center end">
