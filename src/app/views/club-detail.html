@@ -49,7 +49,7 @@
             <span class="md-subheader" ng-show="vm.club.stadium.capacity">{{vm.club.stadium.capacity | number: 0}} pl.</span>
           </div>
           <span flex></span>
-          <div>todo: include gmaps</div>
+          <ui-gmap-google-map center='vm.club.stadium.center' zoom='vm.zoom'></ui-gmap-google-map>
         </div>
       </md-whiteframe>
       <md-whiteframe flex-xs flex-gt-xs="50" class="md-whiteframe-2dp" layout="column" layout-align="center center" ng-show="vm.club.palmares.length > 0">

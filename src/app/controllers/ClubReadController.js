@@ -8,10 +8,11 @@
       'clubsService',
       'sportsService',
       'countriesService',
+      'uiGmapGoogleMapApi',
       ClubReadController
     ]);
 
-  function ClubReadController($stateParams, $sce, clubsService, sportsService, countriesService) {
+  function ClubReadController($stateParams, $sce, clubsService, sportsService, countriesService, uiGmapGoogleMapApi) {
     var vm = this;
 
     vm.searchClub = '';
@@ -19,6 +20,7 @@
     vm.sports = sportsService.loadAll();
     vm.countries = countriesService.loadAll();
     vm.club = clubsService.get($stateParams.id);
+    vm.zoom = 14;
 
     vm.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
@@ -43,6 +45,10 @@
 
       return '' + rank;
     }
+
+    uiGmapGoogleMapApi.then(function(maps) {
+//console.log('uiGmapGoogleMapApi:' + JSON.stringify(maps));
+    });
   }
 
 })();
