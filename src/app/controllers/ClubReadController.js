@@ -21,6 +21,7 @@
     vm.countries = countriesService.loadAll();
     vm.club = clubsService.get($stateParams.id);
     vm.zoom = 14;
+    vm.mapsopt = {};
 
     vm.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
@@ -48,6 +49,13 @@
 
     uiGmapGoogleMapApi.then(function(maps) {
 //console.log('uiGmapGoogleMapApi:' + JSON.stringify(maps));
+      vm.mapsopt = {
+        scrollwheel: false,
+        mapTypeId: google.maps.MapTypeId.SATELLITE
+      };
+      vm.markeropt = {
+        title: vm.club.stadium.name + ' (' + vm.club.stadium.capacity + ' pl.)'
+      };
     });
   }
 

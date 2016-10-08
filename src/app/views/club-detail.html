@@ -13,7 +13,7 @@
             <div flex></div>
           </md-card-header-text>
           <div layout="column">
-            <div layout="row" layout-align="center end"><span flex></span><span style="margin-right:10px;">{{(vm.sports | filter: {id: data.sport})[0].display}}</span><md-icon md-svg-src="{{(vm.sports | filter: {id: data.sport})[0].icon}}" style="font-size: 16px;"></md-icon></div>
+            <div layout="row" layout-align="center end"><span flex></span><span style="margin-right:10px;">{{(vm.sports | filter: {id: vm.club.sport})[0].display}}</span><md-icon md-svg-src="{{(vm.sports | filter: {id: vm.club.sport})[0].icon}}" style="font-size: 16px;"></md-icon></div>
             <span flex></span>
             <md-card-actions layout="row" layout-align="center end">
               <md-button class="md-raised">Edit</md-button>
@@ -45,11 +45,17 @@
         <span class="md-title" style="margin-top: 10px; margin-bottom: 10px;"><i class="material-icons">location_city</i> Stadium</span>
         <div layout-xs="column" layout="row" class="md-padding" layout-align="center start">
           <div layout="column" layout-align="center start">
-            <div ng-show="vm.club.stadium.name">{{vm.club.stadium.name}}<md-button class="md-icon-button" ng-click="#"><i class="material-icons">place</i></md-button></div>
+            <div ng-show="vm.club.stadium.name">{{vm.club.stadium.name}}</div>
             <span class="md-subheader" ng-show="vm.club.stadium.capacity">{{vm.club.stadium.capacity | number: 0}} pl.</span>
           </div>
           <span flex></span>
-          <ui-gmap-google-map center='vm.club.stadium.center' zoom='vm.zoom'></ui-gmap-google-map>
+          <ui-gmap-google-map center='vm.club.stadium.center' zoom='vm.zoom' options='vm.mapsopt' ng-show="vm.club.stadium.center">
+            <ui-gmap-marker
+              idKey='vm.club.stadium.id'
+              coords='vm.club.stadium.center'
+              options='vm.markeropt'
+            ></ui-gmap-marker>
+          </ui-gmap-google-map>
         </div>
       </md-whiteframe>
       <md-whiteframe flex-xs flex-gt-xs="50" class="md-whiteframe-2dp" layout="column" layout-align="center center" ng-show="vm.club.palmares.length > 0">
