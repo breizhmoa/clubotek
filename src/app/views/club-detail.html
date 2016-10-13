@@ -29,7 +29,7 @@
         <span class="md-title" style="margin-top: 10px; margin-bottom: 10px;"><i class="material-icons">info_outline</i> Informations</span>
         <div layout-xs="column" layout="row" class="md-padding" layout-align="center start">
           <div layout="column" layout-align="center start">
-            <span ng-show="vm.club.officialName">{{vm.club.officialName}}</span><br/>
+            <span ng-show="vm.club.officialName">{{vm.club.officialName}}<br/></span>
             <span class="md-subheader" ng-show="vm.club.foundationYear">Fondé en <strong>{{vm.club.foundationYear}}</strong></span>
             <span class="md-subheader" ng-show="vm.club.current.league">En <strong>{{vm.club.current.league}}</strong> ({{vm.club.current.year}})</span>
             <span style="margin-top: 20px;" class="md-caption" ng-show="vm.club.surname">{{vm.club.surname}}</span>
@@ -44,7 +44,7 @@
       <md-whiteframe flex-xs flex-gt-xs="50" class="md-whiteframe-2dp" layout="column" layout-align="center center" ng-show="vm.club.stadium.name || vm.club.stadium.capacity">
         <span class="md-title" style="margin-top: 10px; margin-bottom: 10px;"><i class="material-icons">location_city</i> Stadium</span>
         <div layout-xs="column" layout="row" class="md-padding" layout-align="center start">
-          <div layout="column" layout-align="center start">
+          <div layout="column" layout-align="center start" layout-margin>
             <div ng-show="vm.club.stadium.name">{{vm.club.stadium.name}}</div>
             <span class="md-subheader" ng-show="vm.club.stadium.capacity">{{vm.club.stadium.capacity | number: 0}} pl.</span>
           </div>
@@ -52,22 +52,21 @@
           <ui-gmap-google-map center='vm.club.stadium.center' zoom='vm.zoom' options='vm.mapsopt' ng-show="vm.club.stadium.center">
             <ui-gmap-marker
               idKey='vm.club.stadium.id'
-              coords='vm.club.stadium.center'
+              coords='vm.marker.coords'
               options='vm.markeropt'
+              ng-cloak
             ></ui-gmap-marker>
           </ui-gmap-google-map>
         </div>
       </md-whiteframe>
       <md-whiteframe flex-xs flex-gt-xs="50" class="md-whiteframe-2dp" layout="column" layout-align="center center" ng-show="vm.club.palmares.length > 0">
         <span class="md-title" style="margin-top: 10px; margin-bottom: 10px;"><i class="material-icons">book</i> Records</span>
-        <div layout-xs="column" layout="row" class="md-padding" layout-align="center start">
-          <div layout-xs="column" layout="row" layout-align="center start">
-            <span ng-repeat="record in vm.club.palmares" style="margin: 5px;">
-              <span>{{record.competition}}</span>
-              <div class="md-subheader" ng-repeat="comp in record.record">{{vm.getCompetitionRankFriendlyName(record.type, comp.rank)}}: <span ng-repeat="y in comp.years">{{y}}{{ $last ? '' : ', '}}</span> ({{comp.years.length}})</div>
+        <div layout-xs="column" layout="row" layout-align="center start">
+          <span ng-repeat="record in vm.club.palmares" style="margin: 5px;" layout-margin>
+            <span>{{record.competition}}</span>
+            <div class="md-subheader" ng-repeat="comp in record.record">{{vm.getCompetitionRankFriendlyName(record.type, comp.rank)}}: <span ng-repeat="y in comp.years">{{y}}{{ $last ? '' : ', '}}</span> ({{comp.years.length}})</div>
                <md-divider style="top-margin: 20px;"></md-divider>
-            </span>
-          </div>
+          </span>
         </div>
       </md-whiteframe>
       <md-whiteframe flex-xs flex-gt-xs="50" class="md-whiteframe-2dp" layout="column" layout-align="center center" ng-show="false">

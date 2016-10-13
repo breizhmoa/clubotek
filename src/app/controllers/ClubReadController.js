@@ -53,8 +53,10 @@
         scrollwheel: false,
         mapTypeId: google.maps.MapTypeId.SATELLITE
       };
+      vm.marker = {coords: Object.create(vm.club.stadium.center)};
       vm.markeropt = {
         title: vm.club.stadium.name + ' (' + vm.club.stadium.capacity + ' pl.)'
+        /*animation: 1*/
       };
     });
   }
